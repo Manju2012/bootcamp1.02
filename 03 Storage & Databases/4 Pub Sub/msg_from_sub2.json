@@ -1,0 +1,41 @@
+Received Message {
+    data: b'name:mno'
+    ordering_key: ''
+    attributes: {}
+}Received Message {
+    data: b'name:def'
+    ordering_key: ''
+    attributes: {}
+}Received Message {
+    data: b'name:ghi'
+    ordering_key: ''
+    attributes: {}
+}Received Message {
+    data: b'name:abc'
+    ordering_key: ''
+    attributes: {}
+}Received Message {
+    data: b'name:jkl'
+    ordering_key: ''
+    attributes: {}
+}Received Message {
+  data: b'{id:6, name:xxx}'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'{id:7, name:yyy}'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'{id:9, name:zzz}'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'{id:10, name:bbb}'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'{id:8, name:ccc}'
+  ordering_key: ''
+  attributes: {}
+}

@@ -1,0 +1,21 @@
+Received Message {
+  data: b'name:def'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'name:mno'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'name:ghi'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'name:jkl'
+  ordering_key: ''
+  attributes: {}
+}Received Message {
+  data: b'name:abc'
+  ordering_key: ''
+  attributes: {}
+}

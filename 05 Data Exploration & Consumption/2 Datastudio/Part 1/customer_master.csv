@@ -1,0 +1,201 @@
+customerid,name,address,city,state,pincode
+1,Aradhya Gara,Gopal Ganj,Korba,Odisha,229213
+2,Zaina Viswanathan,Bansal Chowk,Kadapa,Nagaland,006284
+3,Amani Tandon,Ratta Marg,Nadiad,Odisha,493034
+4,Neelofar Hari,Luthra,Chennai,Telangana,029510
+5,Kiara Bhardwaj,Gera Circle,Bhagalpur,Himachal Pradesh,775114
+6,Arhaan Viswanathan,Bajaj Nagar,Hazaribagh,Nagaland,620850
+7,Uthkarsh Bera,Singhal Street,Madurai,Bihar,634917
+8,Riaan Grover,Garg Road,Gudivada,Tamil Nadu,488734
+9,Lagan Dugal,Srinivasan Nagar,Mira-Bhayandar,Maharashtra,598096
+10,Sara Tella,Sarma Path,Nellore,Kerala,708239
+11,Vardaniya Bath,Bhakta Marg,Anand,Jharkhand,503180
+12,Kismat Bahri,Balan Nagar,Bhagalpur,Rajasthan,401616
+13,Saksham Bhat,Varughese Nagar,Pali,Rajasthan,516059
+14,Tushar Kale,Chada Street,Pune,Mizoram,488509
+15,Yashvi Lall,Ramachandran Circle,Sikar,Telangana,583982
+16,Kashvi Suri,Sur Circle,Berhampore,Manipur,713542
+17,Pranay Amble,Walia Road,Ramgarh,Chhattisgarh,983966
+18,Neysa Madan,Raj Circle,Pimpri-Chinchwad,Maharashtra,891068
+19,Riaan Chakrabarti,Bumb Street,Latur,Gujarat,822626
+20,Kavya Wagle,Joshi Nagar,Ambala,Arunachal Pradesh,538736
+21,Suhana Dutta,Sinha Path,Pondicherry,Uttar Pradesh,083041
+22,Uthkarsh Sastry,Khosla Marg,Ludhiana,Assam,664381
+23,Rohan Kari,Malhotra Ganj,Siwan,Madhya Pradesh,367703
+24,Krish Chawla,Rajagopalan Marg,Bhiwandi,Assam,356784
+25,Ritvik Sridhar,Dubey Ganj,Muzaffarpur,Gujarat,229217
+26,Aaryahi Sandhu,Sani Chowk,Junagadh,Haryana,316777
+27,Aarush Sinha,Bal Road,Maheshtala,Maharashtra,857411
+28,Chirag Bains,Gour Nagar,Ludhiana,Rajasthan,098374
+29,Mishti Basak,Shroff Street,Mehsana,Manipur,106840
+30,Ehsaan Sahota,Shan Circle,Agartala,Bihar,412240
+31,Kashvi Mall,Goel Circle,Kakinada,Punjab,791100
+32,Dhanush Sant,Bal Zila,Guntakal,Karnataka,875892
+33,Shalv Sane,Kaul Chowk,Jalandhar,Tamil Nadu,636104
+34,Ehsaan Goda,Bhardwaj Circle,Howrah,Karnataka,253720
+35,Raghav Balakrishnan,Divan Nagar,Bhilai,Rajasthan,387962
+36,Mohanlal Varma,Khosla Street,Ramgarh,Himachal Pradesh,531912
+37,Badal Boase,Raj Road,Sikar,West Bengal,163227
+38,Ritvik Mane,Sura Zila,Bathinda,Haryana,763114
+39,Kimaya Sodhi,Dar Ganj,Bhiwandi,Uttar Pradesh,331437
+40,Ivana Dhawan,Gulati Ganj,Dehri,Kerala,100033
+41,Hazel Kala,Jayaraman Street,Bikaner,Sikkim,057232
+42,Yuvaan Uppal,Ramakrishnan Marg,Ramagundam,Himachal Pradesh,621420
+43,Aarush Kadakia,Ghosh Chowk,Dewas,Meghalaya,752767
+44,Dhruv Ranganathan,Luthra Chowk,Moradabad,Gujarat,549086
+45,Krish Sen,Karan,Sonipat,Madhya Pradesh,997712
+46,Lakshit Chacko,Karan Marg,Burhanpur,Gujarat,072790
+47,Eva Barad,Saini Circle,Suryapet,West Bengal,364880
+48,Jiya Bassi,Devi Nagar,Jalgaon,Uttarakhand,246202
+49,Lakshay Jaggi,Sharma Street,Chapra,Assam,520850
+50,Aradhya Barad,Bhatnagar Nagar,Tinsukia,Telangana,149783
+51,Ritvik Agrawal,Basak Street,Danapur,Bihar,694016
+52,Shamik Dhar,Dhawan Zila,Bahraich,Mizoram,619895
+53,Parinaaz Agate,Date Nagar,Bhilwara,Karnataka,132586
+54,Diya Bobal,Chatterjee Chowk,Aizawl,Madhya Pradesh,756188
+55,Inaaya  Malhotra,Sodhi Circle,Siwan,Odisha,947638
+56,Armaan Babu,Dixit Zila,Dhanbad,Telangana,940427
+57,Ahana  Lad,Master Zila,Nadiad,Andhra Pradesh,223639
+58,Advika Borra,Sarraf Marg,Thoothukudi,Himachal Pradesh,998636
+59,Charvi Dayal,Bansal Street,Jehanabad,Telangana,503739
+60,Miraya Venkatesh,Badal Path,Raurkela Industrial Township,Tripura,865033
+61,Mehul Hayre,Bakshi Path,Amroha,Tripura,862046
+62,Ryan Rama,Singhal Street,Davanagere,Andhra Pradesh,783359
+63,Jayant Sarkar,Boase Marg,Tenali,Punjab,135893
+64,Ishaan Jhaveri,Deol Nagar,Panihati,Kerala,001952
+65,Anvi Sarraf,Gala Street,Mathura,Karnataka,815057
+66,Anaya Rao,Bhat Marg,Dewas,Uttar Pradesh,080536
+67,Emir Mander,Boase Zila,Ramgarh,Uttar Pradesh,141559
+68,Dharmajan Ramakrishnan,Jayaraman Zila,Bangalore,Arunachal Pradesh,109474
+69,Farhan Kara,Warrior Nagar,Jhansi,Arunachal Pradesh,857485
+70,Samar Goswami,Boase Path,Vasai-Virar,Kerala,548770
+71,Zoya Chaudry,Babu Ganj,Indore,Tamil Nadu,352965
+72,Saanvi Sibal,Jani Nagar,Tinsukia,Uttarakhand,543662
+73,Rohan Dhawan,Sodhi Zila,Bidar,Maharashtra,736815
+74,Nirvi Gokhale,Reddy Zila,Morbi,Odisha,927543
+75,Tushar Bera,Sandal Ganj,Akola,Karnataka,784299
+76,Yuvraj  Mallick,Banik Ganj,Guna,Uttar Pradesh,582595
+77,Krish Khalsa,Chandra Zila,Bhiwandi,Odisha,879869
+78,Ritvik Khurana,Walla Marg,Ratlam,Himachal Pradesh,288522
+79,Hunar Cherian,Khare Chowk,Bokaro,Karnataka,596558
+80,Nayantara Bal,Brar Road,Giridih,Andhra Pradesh,728737
+81,Jivin Saxena,Mandal Road,Hospet,Goa,450237
+82,Adah Bumb,Chacko Street,Pimpri-Chinchwad,Jharkhand,919206
+83,Emir Madan,Madan Road,Panchkula,Odisha,714949
+84,Riya Khare,Varughese,Sambalpur,Bihar,913963
+85,Kartik Sahni,Mahajan,Haldia,Himachal Pradesh,100346
+86,Gokul Jhaveri,Das Zila,Siliguri,Rajasthan,952424
+87,Dharmajan Mann,Madan Street,Jamshedpur,Tamil Nadu,655499
+88,Aarav Virk,Bail Circle,Siwan,Maharashtra,078692
+89,Fateh Bassi,Sodhi Circle,Hosur,Arunachal Pradesh,849337
+90,Aarav Mahajan,Babu,Agra,Andhra Pradesh,007758
+91,Reyansh Sharma,Kibe Street,North Dumdum,Tripura,063694
+92,Renee Balasubramanian,Desai Marg,Bharatpur,Himachal Pradesh,535148
+93,Aarav Karan,Grewal Nagar,Belgaum,Tamil Nadu,644568
+94,Kabir Kibe,Dyal Path,Jorhat,Haryana,491874
+95,Advika Gupta,Vora Circle,Hapur,Nagaland,291042
+96,Emir Bedi,Virk Circle,Bhopal,Maharashtra,210673
+97,Madhup Sathe,Gaba Chowk,Delhi,Chhattisgarh,487391
+98,Chirag Deol,Doshi,Bijapur,Telangana,970722
+99,Yashvi Goswami,Rama Ganj,Arrah,Manipur,883288
+100,Rohan Arya,Bava Road,Ongole,Himachal Pradesh,736942
+101,Manjari Randhawa,Sridhar Marg,Shahjahanpur,Sikkim,050268
+102,Vihaan Kalita,Basu Circle,Khandwa,Gujarat,488854
+103,Divit Hayre,Kamdar Path,Shimla,Himachal Pradesh,646025
+104,Kanav Sharaf,Tak Path,Siliguri,Madhya Pradesh,707987
+105,Umang Sankaran,Talwar Marg,Jalna,Madhya Pradesh,876959
+106,Ehsaan Magar,Sha Nagar,Phagwara,Goa,174493
+107,Onkar Chana,Boase Path,Belgaum,Karnataka,916626
+108,Rhea Dass,Kade Street,Cuttack,Assam,948494
+109,Priyansh Dutta,Sen,Vasai-Virar,Haryana,856503
+110,Shamik Tripathi,Keer Ganj,Chandigarh,Uttarakhand,068783
+111,Divit Bora,Samra Circle,Katni,West Bengal,851182
+112,Samiha Loke,Atwal Street,Varanasi,Odisha,609056
+113,Priyansh Saxena,Reddy Street,Raurkela Industrial Township,West Bengal,706167
+114,Indrans Basak,Sawhney Nagar,Burhanpur,Telangana,337755
+115,Kismat Venkatesh,Kanda Road,Mumbai,Meghalaya,291275
+116,Seher Balasubramanian,Bhandari Zila,Jhansi,Mizoram,679201
+117,Oorja Sodhi,Kaul,Sasaram,Tamil Nadu,049687
+118,Uthkarsh Kumar,Gole Chowk,Ratlam,Andhra Pradesh,616509
+119,Tiya Keer,Jha,Ambala,Meghalaya,671936
+120,Jayesh Gola,Mani Path,Korba,Rajasthan,150884
+121,Sana Rastogi,Chaudhari Path,Ujjain,Himachal Pradesh,233630
+122,Nirvaan Shankar,Baral Nagar,Ramagundam,Arunachal Pradesh,622963
+123,Mohanlal Korpal,Halder Circle,Karaikudi,Telangana,023477
+124,Chirag Karnik,Madan Street,Erode,Sikkim,889946
+125,Ira Saini,Chaudhari Road,Dharmavaram,Tripura,843263
+126,Raunak Chandra,Chopra Marg,Rohtak,Chhattisgarh,035053
+127,Nishith Rau,Dhar Path,Satna,West Bengal,959574
+128,Nehmat Vasa,Vohra Road,Durgapur,Uttarakhand,925648
+129,Anika Sagar,Singh Ganj,Rajahmundry,Karnataka,369415
+130,Neelofar Bansal,Khanna Ganj,Mira-Bhayandar,Andhra Pradesh,686396
+131,Drishya Rege,Krishnan Path,Kadapa,Uttar Pradesh,848324
+132,Adira Bakshi,Walia Chowk,Medininagar,Maharashtra,808717
+133,Yasmin Vyas,Apte Path,Morena,Uttarakhand,820520
+134,Tarini Varkey,Sinha Circle,Pali,Punjab,582050
+135,Aarna Sarkar,Bedi Road,Sasaram,Bihar,822137
+136,Stuvan Datta,Vasa Road,Mysore,Rajasthan,830196
+137,Shamik Sridhar,Bansal Circle,Rajpur Sonarpur,Punjab,112351
+138,Chirag Dutta,Raju Path,Jhansi,Andhra Pradesh,749595
+139,Aarush Bose,Suresh Circle,Satara,Meghalaya,167774
+140,Seher Vala,Chaudhuri Circle,Panvel,Goa,484501
+141,Shamik Basak,Ravi Nagar,Ghaziabad,Uttar Pradesh,905862
+142,Suhana Sathe,Bal Street,Hyderabad,Gujarat,338832
+143,Kimaya Bali,Sibal Ganj,Hubli–Dharwad,Himachal Pradesh,661886
+144,Ira Sen,Din Marg,Ratlam,Jharkhand,576753
+145,Trisha Bhavsar,Hegde Zila,Ballia,Mizoram,921393
+146,Jivin Bawa,Rana Circle,Dewas,Punjab,347418
+147,Elakshi Kaur,Setty Nagar,Amravati,Chhattisgarh,552871
+148,Vihaan Subramaniam,Anand Nagar,Bihar Sharif,Himachal Pradesh,161704
+149,Prisha Bail,Sengupta Marg,Haridwar,Karnataka,477271
+150,Biju Kari,Sahota Nagar,South Dumdum,Tamil Nadu,909273
+151,Nirvi Bose,Master,Ozhukarai,Bihar,537955
+152,Nirvaan Deo,Mani Street,Allahabad,Kerala,578537
+153,Urvi Salvi,Sant Circle,Alappuzha,Madhya Pradesh,230968
+154,Zara Hari,Kuruvilla Chowk,Ujjain,Arunachal Pradesh,966162
+155,Piya Sahota,Seshadri Marg,Tirunelveli,Meghalaya,166074
+156,Amira Bose,Sandhu Marg,Thoothukudi,West Bengal,113590
+157,Shlok Yadav,Kothari Road,Bokaro,Telangana,248534
+158,Kartik Sami,Ramakrishnan Street,Mango,Chhattisgarh,877054
+159,Akarsh Kala,Mallick Ganj,Indore,Himachal Pradesh,870226
+160,Hazel Chowdhury,Shukla Street,Jamshedpur,Manipur,542755
+161,Shlok Lall,Ram Ganj,Srikakulam,Uttarakhand,364510
+162,Shayak Shah,Bobal Path,Rajpur Sonarpur,Assam,917016
+163,Zeeshan Mahajan,Dey Road,Sultan Pur Majra,Gujarat,997218
+164,Samaira Khare,Dhaliwal,Chittoor,Goa,426691
+165,Yuvraj  Ganesh,Thakkar,Kakinada,Tripura,970304
+166,Dhruv Kumar,Hegde Circle,Dhule,Meghalaya,441657
+167,Saira Arya,Comar Circle,Ajmer,Jharkhand,509636
+168,Farhan Arya,Wali Ganj,Kollam,Sikkim,055095
+169,Vardaniya Wali,Badami Zila,Srinagar,Odisha,165446
+170,Krish Suresh,Bajwa,Bhimavaram,Tripura,564188
+171,Jayan Khurana,Balakrishnan,Delhi,Maharashtra,125151
+172,Vivaan Raja,Baria Street,Secunderabad,Punjab,215861
+173,Dhanush Sanghvi,Khanna Zila,Kalyan-Dombivli,Uttarakhand,937158
+174,Romil Rajagopalan,Agrawal Circle,Proddatur,Manipur,676067
+175,Ahana  Sama,Bir Ganj,Madhyamgram,Karnataka,439649
+176,Raghav Chaudhry,Dave Marg,Agra,Kerala,335200
+177,Jivin Chaudhari,Kakar Road,Vasai-Virar,Karnataka,553491
+178,Heer Konda,Joshi Nagar,Anantapur,Telangana,208220
+179,Rhea Jhaveri,Kapur Marg,Dhule,Himachal Pradesh,014859
+180,Siya Anand,Talwar Road,Tiruppur,Tamil Nadu,916195
+181,Zain Mani,Kala Marg,South Dumdum,Uttarakhand,455780
+182,Saksham Boase,Shan,Dehradun,Punjab,858981
+183,Aarush Kala,Wali Street,Naihati,Sikkim,175484
+184,Kiara Savant,Sachdev Zila,Bathinda,Odisha,249014
+185,Eshani Balan,Anand,Durgapur,Haryana,436762
+186,Lagan Choudhury,Gulati Road,Madhyamgram,Telangana,852457
+187,Piya Dar,Sarkar Ganj,Asansol,Manipur,498309
+188,Prerak Sodhi,Setty Nagar,Kolkata,Maharashtra,555093
+189,Hansh Loke,Kata,Mirzapur,Uttar Pradesh,150169
+190,Shlok Choudhury,Sunder Chowk,Ongole,Uttar Pradesh,348753
+191,Amani Kala,Krishnan Ganj,Amritsar,Nagaland,527902
+192,Tara Hayer,Chadha Nagar,Bhagalpur,Uttar Pradesh,256295
+193,Jivin Khanna,Das Circle,Belgaum,Nagaland,544723
+194,Divit Shanker,Jayaraman Circle,Aurangabad,Meghalaya,086045
+195,Pranay Tella,Chahal Path,Malda,Haryana,869550
+196,Indranil Goda,Chaudhuri Street,Howrah,Odisha,971237
+197,Lavanya Tella,Ramachandran Marg,Bidar,Mizoram,872929
+198,Zain Gara,Chadha Circle,Bhopal,Haryana,086250
+199,Krish Krishnan,Venkatesh Zila,Mysore,Odisha,930736
+200,Baiju Rama,Soman Nagar,Hyderabad,Rajasthan,644951

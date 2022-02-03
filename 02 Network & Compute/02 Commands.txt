@@ -1,0 +1,47 @@
+=>Compute Engine----------------------------------------------------------------
+
+->Creating VMs
+
+gcloud compute instances create vm1ce --machine-type=f1-micro \
+    --network-interface subnet=subnet1,no-address \
+    --zone us-central1-a
+
+gcloud compute instances create vm2ce --machine-type=f1-micro \
+    --network-interface subnet=subnet2,no-address \
+    --zone us-central1-a
+
+->SSH to vm1ce via bastion host
+
+hostname
+
+gcloud compute ssh vm1ce --internal-ip
+
+->Creating and running python script in vm1ce (extra)
+
+touch main.py 
+
+vi main.py
+
+sudo apt-get update
+
+sudo apt-get install python3-pip
+
+pip install faker
+
+python3 main.py
+
+->Generating csv file 
+
+(python code - csvgenerator.py)
+
+->Sending file from home directory to vm1ce
+
+gcloud compute scp vmreccp.csv vm1ce:~/ --internal-ip
+
+->Sending file from vm1ce to vm2ce via bastion host
+
+gcloud compute scp vmreccp.csv vm2ce:~/ --internal-ip
+
+->Verifying if files are same
+
+cmp -b [File 1 path] [File 2 path]

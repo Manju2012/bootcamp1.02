@@ -1,0 +1,27 @@
+1. Explore to find out number of columns, data types
+
+29 Columns ; 4 Data Types
+
+2. What is the most common value in Genre
+
+(Screenshot)
+
+3. Explore top 3 “Country Availability” with number of titles
+
+(pending)
+
+4. Explore “how many distinct values in each column”
+
+Done
+
+5. What is the Maximum and Minimum Box Office Amount.
+
+(Screenshot)
+
+6. Can you change data types of columns? How ?
+
+Yes, abc -> # or from menu
+
+7. Can you remove duplicates from data ? How ?
+
+Yes, from menu

@@ -1,0 +1,126 @@
+=>Dataflow Part 1---------------------------------------------------------------
+
+->Creating file
+
+(python code: csvgenerator.py)
+
+->Creating bucket
+
+gsutil mb -p ssbc-99 -l us-central1 -b on gs://msn-dfpart
+
+->Uploading file to GCS bucket
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/f100k.csv gs://msn-dfpart
+
+->Dataflow batch pipeline
+
+(python code:df_batch.py)
+
+pip3 install virtualenv
+python3 -m virtualenv env
+source env/bin/activate
+
+pip3 install apache-beam[gcp]
+
+python3 /home/fagcpdebc02_07/Ingestion/part1/df_batch.py --runner DataFlowRunner --project ssbc-99 --temp_location gs://msn-dfpart/batch/temp --staging_location gs://msn-dfpart/batch/stag --region us-central1 --job_name job1 --max_num_workers=3
+
+=>Dataflow Part 2-----------------------------------------------------------------(INCOMPLETE)
+
+->Creating topic and subscription
+
+gcloud pubsub topics create dftopic
+
+gcloud pubsub subscriptions create dfsub --topic=dftopic --expiration-period=2592000
+
+->Publishing json messages
+
+(python code: pubsubp3code.py)
+
+->Launching dataflow streaming pipeline
+
+source env/bin/activate
+
+python3 /home/fagcpdebc02_07/Ingestion/part2/df_streaming.py --streaming --runner DataflowRunner --project ssbc-99 --region us-central1 --temp_location gs://msn-dfpart/stream/temp --job_name df-job2
+
+=>Compute Engine with Python
+
+->Creating instance
+
+gcloud compute instances create vm-python-etl --machine-type=n1-standard-2 --image-family=centos-8 --image-project=centos-cloud --subnet=subnet1
+
+->Package installation after ssh into VM instance
+
+sudo yum install python3
+sudo dnf install python3-pip
+sudo yum install postgresql
+sudo yum install postgresql-libs
+
+->Creating dataset
+
+bq --location=US mk --dataset --default_table_expiration 2592000 ssbc-99:pgdataset
+
+->Reading 4 tables from postgreSQL instance and adding the same to bigquery
+
+sudo python3 -m pip install --upgrade pip
+
+pip3 install pandas
+pip3 install psycopg2
+pip3 install psycopg2-binary
+pip3 install google-cloud
+pip3 install google.cloud.bigquery
+pip3 install pandas_gbq
+pip3 install google.cloud.logging
+
+touch main.py 
+vi main.py
+python3 main.py
+
+(python code: main.py)
+
+->Creating additional tables
+
+touch main2.py 
+vi main2.py
+python3 main2.py
+
+(python code: main2.py)
+
+=>Cloud Composer-------------------------------------------------------------------
+
+->Creating bucket
+
+gsutil mb -p ssbc-99 -l us-central1 -b on gs://msn-composer 
+
+->Creating avro file:
+
+(python code: avrogenerator.py)
+
+->DAG
+
+(python code:main.py)
+
+=>Cloud Functions-------------------------------------------------------------------
+
+->Creating bucket
+
+gsutil mb -p ssbc-99 -l us-central1 -b on gs://msn-functions
+
+->Creating files to upload
+
+(python code:filegen.py)
+
+->Python Cloud Function
+
+(python code: main.py)
+
+->Uploading files to GCS
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/function/cf_file1.csv gs://msn-functions
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/function/cf_file2.csv gs://msn-functions
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/function/cf_file3.csv gs://msn-functions
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/function/cf_file4.csv gs://msn-functions
+
+gsutil cp /home/fagcpdebc02_07/Ingestion/function/cf_file5.csv gs://msn-functions

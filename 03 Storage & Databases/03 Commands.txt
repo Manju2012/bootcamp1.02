@@ -1,0 +1,251 @@
+=>Files-----------------------------------------------------------------
+
+(python code: sourcefile1gen.py)
+
+=>GCS-------------------------------------------------------------------
+
+->Creating Bucket
+
+gsutil mb -p ssbc-99 -l us-central1 -b on gs://samiksha-shah-fagcpbcmp
+
+->Verifying if files are same
+
+cmp -b [File 1 path] [File 2 path]
+
+=>BQ Part 1-------------------------------------------------------------
+
+-> Creating dataset
+
+bq --location=us-central1 mk \
+--dataset \
+--default_table_expiration 2592000 \
+--ssbc-99:partition_comp
+
+Note: used console instead
+
+->SQL query to generate the required columns
+
+SELECT v1.Year_partition AS Partition1, v1.cnt AS NumberOfRowsinVersion1, 
+v2.cnt AS NumberOfRowsinVersion2, (v2.cnt-v1.cnt) AS DifferenceOfRowsVer2minusVer1
+FROM
+(SELECT DISTINCT Year_partition,SUM(cnt) AS cnt
+FROM
+(SELECT EXTRACT(Year FROM Birth_Date) AS Year_partition,COUNT(*) as cnt
+FROM
+ssbc-99.partition_comp.version1 v1
+GROUP BY v1.Birth_Date) v1
+GROUP BY Year_partition) v1
+JOIN 
+(SELECT DISTINCT Year_partition,sum(cnt) as cnt 
+FROM
+(SELECT EXTRACT(Year FROM Birth_Date) AS Year_partition,count(*) as cnt
+FROM
+ssbc-99.partition_comp.version2 v1
+GROUP BY v1.Birth_Date)v1
+GROUP BY Year_partition)v2
+on v1.Year_partition=v2.Year_partition
+
+=>BQ Part 2---------------------------------------------------------------
+
+Note: Used console to create dataset and blank table
+
+->Adding data to hourly-summary-trips table using SQL query
+
+SELECT DATE(start_time) AS trip_date,
+EXTRACT(HOUR FROM start_time) AS trip_start_hour,
+start_station_name,
+COUNT(*) AS trip_count,
+SUM(duration_minutes) AS total_trip_duration_minutes
+FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` 
+GROUP BY trip_date,trip_start_hour, start_station_name;
+
+->Creating required view
+
+CREATE VIEW `ssbc-99.bikeshare.busiest_stations_by_hour`( trip_start_hour, station_name, max_trips) AS 
+SELECT  trip_start_hour, start_station_name, COUNT(*) as max_trips
+FROM `ssbc-99.bikeshare.hourly_summary_trips`
+group by trip_start_hour,start_station_name
+ORDER BY max_trips DESC;
+
+Note: couldn't logically include trip_date hence not included in view
+
+=>BQ Part 3----------------------------------------------------------------
+
+->Creating required view
+
+CREATE VIEW `ssbc-99.baseball.games_attendance` AS
+(SELECT Q1.home_team,Q1.avg_weekday_attendance,Q2.avg_weekend_attendance FROM 
+(SELECT homeTeamName as home_team, round(sum(attendance)/count(*),2) as avg_weekday_attendance 
+FROM `bigquery-public-data.baseball.schedules` 
+WHERE EXTRACT(DAYOFWEEK from starttime)<=5 AND status='closed'
+GROUP BY home_team) AS Q1
+FULL OUTER JOIN 
+(SELECT homeTeamName as home_team, round(sum(attendance)/count(*),2) as avg_weekend_attendance 
+FROM `bigquery-public-data.baseball.schedules` 
+WHERE EXTRACT(DAYOFWEEK from starttime)>5 AND status='closed'
+GROUP BY home_team) AS Q2
+ON Q1.home_team = Q2.home_team);
+
+=>BQ Part 4----------------------------------------------------------------
+
+->Creating bucket
+
+gsutil mb -p ssbc-99 -l us-central1 -b on gs://samiksha-shah-netflix
+
+->Loading raw data to GCS bucket
+
+(python code: upload_to_gcs.py)
+
+->Loading data from GCS to BQ table
+
+(python code: upload_to_bq_db.py)
+
+->Queries to create required views
+
+Note: tried using split() but couldn't group by the array created by split()
+
+-- Find out the number of titles in each Country Availability grouped by Runtime
+create view `ssbc-99.netflix.view1` as
+(select Country_Availability,count(title) as number_of_titles,runtime 
+from `ssbc-99.netflix.netflix-raw-data`
+group by Country_Availability,runtime
+order by  number_of_titles desc,runtime desc);
+
+-- Find out Number of Titles against each actor. Should cover all actors available in data
+create view `ssbc-99.netflix.view2` as
+(select actors,count(title)  as number_of_titles from `ssbc-99.netflix.netflix-raw-data`
+where actors is not null 
+group by actors);
+
+-- Find out the number of Titles for each Genre. Should cover all genres available in data
+create view `ssbc-99.netflix.view3` as
+(select genre,count(title)  as number_of_titles  from `ssbc-99.netflix.netflix-raw-data`
+where genre is not null 
+group by genre);
+
+-- Find out the number of Titles available in each country by Genre
+create view `ssbc-99.netflix.view4` as
+(select genre,Country_Availability,count(title) as number_of_titles from `ssbc-99.netflix.netflix-raw-data`
+where Country_Availability is not null
+group by genre,Country_Availability
+order by Country_Availability);
+
+-- Find out top 3 Box Office grossers for each year: Release Year, Title, Box Office, Actors, Genre
+create view `ssbc-99.netflix.view5` as
+(select Release_year,Title,Boxoffice,Actors,Genre from (
+    select extract (year from Netflix_Release_Date) as Release_year,Title,Boxoffice,Actors,Genre,
+           row_number() over (partition by extract (year from Netflix_Release_Date) 
+           order by Boxoffice desc) as BoxofficeRank 
+    from `ssbc-99.netflix.netflix-raw-data`) 
+where BoxofficeRank <= 3);
+
+=>Pub Sub Part 1--------------------------------------------------------------
+
+->Creating topic
+
+gcloud pubsub topics create topic1
+
+->Creating subsciptions
+
+gcloud pubsub subscriptions create sub1 --topic=topic1 --expiration-period=2592000
+
+gcloud pubsub subscriptions create sub2 --topic=topic1 --expiration-period=2592000
+
+->Publishing messages
+
+gcloud pubsub topics publish topic1 --message={"id":1,"name":"abc"}
+gcloud pubsub topics publish topic1 --message={"id":2,"name":"def"}
+gcloud pubsub topics publish topic1 --message={"id":3,"name":"ghi"}
+gcloud pubsub topics publish topic1 --message={"id":4,"name":"jkl"}
+gcloud pubsub topics publish topic1 --message={"id":5,"name":"mno"}
+
+=>Pub Sub Part 2---------------------------------------------------------------
+
+pip3 install google-cloud-pubsub
+
+(python code: part2.py)
+
+=>Pub Sub Part 3---------------------------------------------------------------
+
+(python code: part3.py)
+
+=>Pub Sub Part 4---------------------------------------------------------------
+
+(python code: part4.py)
+
+=>CloudSQL-PostgreSQL----------------------------------------------------------
+
+->Connecting to instance
+
+gcloud sql connect mypginstance --user=postgres --quiet
+
+->Creating DB
+
+CREATE DATABASE myorg;
+
+->Checking DB list
+
+\l
+
+->Using DB
+
+\c myorg
+
+->Creating Tables and checking list of tables
+
+CREATE TABLE Department(dept_id int NOT NULL,dept_name varchar(25),dept_head_id int,primary key(dept_id));
+\dt
+CREATE TABLE Employee(emp_id int NOT NULL,name varchar(25),dept_id int,salary int,joining_date date,leaving_date date,is_active boolean,primary key(emp_id),FOREIGN KEY (dept_id) REFERENCES Department(dept_id));
+\dt
+CREATE TABLE Project(proj_id int NOT NULL,proj_name varchar(25),dept_id int,proj_start_date date,proj_end_date date,primary key(proj_id),FOREIGN KEY (dept_id) REFERENCES Department(dept_id));
+\dt
+CREATE TABLE Project_staff(proj_id int,emp_id int,role_name varchar(25),start_date date,end_date date,FOREIGN KEY (proj_id) REFERENCES Project(proj_id),FOREIGN KEY (emp_id) REFERENCES Employee(emp_id));
+\dt
+
+->Populating tables and checking the data
+
+INSERT INTO department(dept_id,dept_name,dept_head_id) VALUES (101,'Finance',128),
+(102,'HR',132),(103,'Sales',124);
+
+SELECT * FROM department;
+
+INSERT INTO employee(emp_id,name,dept_id,salary,joining_date,leaving_date,is_active) VALUES(120,'Naina Devan',101,30000,'2021-06-06','2021-09-08',FALSE),
+(121,'Surya Banik',103,20000,'2020-07-08',NULL,TRUE),
+(122,'Sunita Dixit',103,20000,'2020-07-08',NULL,TRUE),
+(123,'Aabha Bassi',102,30000,'2021-06-06',NULL,TRUE),
+(124,'Wafiq Menon',103,45000,'2016-05-12',NULL,TRUE),
+(125,'Kushal Datta',101,40000,'2018-03-04',NULL,TRUE),
+(126,'Ajeet Magar',103,20000,'2021-06-06','2021-10-07',FALSE),
+(127,'Chirag Grover',103,25000,'2019-10-03','2021-11-23',FALSE),
+(128,'David Khatri',101,45000,'2016-05-12',NULL,TRUE),
+(129,'Yasmin Karpe',103,20000,'2020-07-08',NULL,TRUE),
+(130,'Kalyan Chokshi',103,20000,'2020-07-08',NULL,TRUE),
+(131,'Sukriti Dugar',101,40000,'2018-03-04',NULL,TRUE),
+(132,'Zeenat Sachar',102,37500,'2018-03-04',NULL,TRUE),
+(133,'Radhika Pathak',103,30000,'2016-05-12','2018-08-31',FALSE),
+(134,'Bhaagyasree Yadav',103,35000,'2018-03-04','2021-07-19',FALSE);
+
+SELECT * FROM employee;
+
+INSERT INTO project(proj_id,proj_name,dept_id,proj_start_date,proj_end_date) VALUES(2103,'F27',101,'2020-03-14','2021-11-11'),
+(2104,'S891',103,'2020-09-21','2022-03-16'),
+(2105,'H11',102,'2021-10-03','2021-10-02');
+
+SELECT * FROM project;
+
+INSERT INTO project_staff(proj_id,emp_id,role_name,start_date,end_date) VALUES(2104,121,'Salesperson','2020-09-21','2022-03-16'),
+(2104,122,'Salesperson','2020-09-21','2022-03-16'),
+(2105,123,'Spokesperson','2021-10-03','2021-10-02'),
+(2104,124,'Manager','2020-09-21','2022-03-16'),
+(2103,125,'Engineer','2020-03-14','2021-11-11'),
+(2103,128,'Manager','2020-03-14','2021-11-11'),
+(2104,129,'Salesperson','2020-09-21','2022-03-16'),
+(2104,130,'Salesperson','2020-09-21','2022-03-16'),
+(2103,131,'Accountant','2020-03-14','2021-11-11'),
+(2105,132,'Manager','2021-10-03','2021-10-02');
+
+SELECT * FROM project_staff;
+
+
+
+

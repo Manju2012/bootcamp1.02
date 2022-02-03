@@ -1,0 +1,39 @@
+=> Activate Cloud Shell-------------------------------------------------------
+
+gcloud compute project-info add-metadata --metadata google-compute-default-region=us-central,google-compute-default-zone=us-central-a
+
+gcloud auth login
+
+->Set config
+
+gcloud config set project ssbc-99
+
+gcloud config set compute/region us-central1
+
+gcloud config set compute/zone us-central1-a
+
+->Get config (checking)
+
+gcloud config get-value compute/region
+
+gcloud config get-value compute/zone
+
+gcloud config list
+
+=>Cloud SDK - gcloud & python-------------------------------------------------
+
+-> python
+
+sudo apt-get install python3-pip
+
+sudo apt-get update
+
+->gcloud
+
+gcloud init 
+
+=>Cloud Logging and Monitoring------------------------------------------------
+
+pip3 install --upgrade google-cloud-logging
+
+(python code)
